@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { PinchView } from 'react-responsive-pinch-zoom-pan'
+import PinchView from 'react-responsive-pinch-zoom-pan'
 import styles from './styles.css'
 
 export default class ZoomGallery extends Component {
@@ -67,7 +67,7 @@ export default class ZoomGallery extends Component {
     if (!this.props.open || images.length === 0) return null
     return (
       <div className={`${styles.wrapper} ZoomGalleryCarousel`}>
-        <PinchView initialScale={1} position='center' zoomButtons={false} maxScale={4}>
+        <PinchView initialScale='auto' position='center' zoomButtons={false} maxScale={4}>
           <img className={`${styles.Image} ${this.state.loading ? styles.ImageLoading : ''}`} src={images[this.state.currentIndex]} />
         </PinchView>
         { this.state.loading && <div className='spinner' /> }

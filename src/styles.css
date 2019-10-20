@@ -20,9 +20,6 @@
 .Image {
   display: block;
   transition: 0.5s ease opacity;
-  margin: 'auto';
-  width: 'auto';
-  height: '100%';
   max-width: none;
 }
 
