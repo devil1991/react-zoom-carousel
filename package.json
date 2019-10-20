@@ -57,5 +57,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "react-responsive-pinch-zoom-pan": "^0.2.2"
+  }
 }
