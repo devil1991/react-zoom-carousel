@@ -33,6 +33,10 @@ export default class ZoomGallery extends Component {
       this.state.currentIndex !== prevState.currentIndex ||
       (this.props.open !== prevProps.open && this.props.open)
     ) return this.handleLoading()
+
+    if (this.props.open && this.props.initialIndex !== prevProps.initialIndex) {
+      this.setState({ currentIndex: this.props.initialIndex })
+    }
   }
 
   prevSlide () {
