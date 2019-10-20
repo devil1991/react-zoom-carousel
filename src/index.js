@@ -24,7 +24,7 @@ export default class ZoomGallery extends Component {
     this.handleClose = this.handleClose.bind(this)
     this.state = {
       currentIndex: props.initialIndex,
-      loading: true
+      loading: false
     }
   }
 
@@ -72,7 +72,7 @@ export default class ZoomGallery extends Component {
         </PinchToZoom>
         { this.state.loading && <div className='spinner' /> }
         <div className={styles.close} onClick={this.handleClose}>
-          <i className='svg-icon hogan-close' />
+          <i className='icon icon-hogan-close-menu' />
         </div>
         <div className={styles.footer}>
           <span onClick={this.prevSlide} className={styles.action}><i className='icon-hogan-arrow-left icon' /></span>

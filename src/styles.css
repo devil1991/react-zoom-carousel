@@ -51,6 +51,7 @@
 .action {
   height: 100%;
   width: 40px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 }
@@ -65,4 +66,5 @@
   justify-content: center;
   z-index: 3;
   cursor: pointer;
+  display: inline-flex;
 }
