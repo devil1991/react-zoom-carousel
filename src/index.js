@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import PinchView from 'react-responsive-pinch-zoom-pan'
 import styles from './styles.css'
+import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
 export default class ZoomGallery extends Component {
   static propTypes = {
@@ -36,6 +37,12 @@ export default class ZoomGallery extends Component {
 
     if (this.props.open && this.props.initialIndex !== prevProps.initialIndex) {
       this.setState({ currentIndex: this.props.initialIndex })
+    }
+
+    if (this.props.open) {
+      disableBodyScroll()
+    } else {
+      clearAllBodyScrollLocks()
     }
   }
 

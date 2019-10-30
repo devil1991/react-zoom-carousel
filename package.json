@@ -59,6 +59,7 @@
     "dist"
   ],
   "dependencies": {
+    "body-scroll-lock": "^2.6.4",
     "react-responsive-pinch-zoom-pan": "^0.2.2"
   }
 }
