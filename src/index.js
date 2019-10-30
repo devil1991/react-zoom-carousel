@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import PinchView from 'react-responsive-pinch-zoom-pan'
 import styles from './styles.css'
-import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
+const bodyScrollLock = require('body-scroll-lock')
+const disableBodyScroll = bodyScrollLock.disableBodyScroll
+const clearAllBodyScrollLocks = bodyScrollLock.clearAllBodyScrollLocks
 
 export default class ZoomGallery extends Component {
   static propTypes = {
