@@ -20,6 +20,8 @@ export default class ZoomGallery extends Component {
     handleClose: () => null
   }
 
+  zoomer = React.createRef()
+
   constructor (props) {
     super(props)
     this.prevSlide = this.prevSlide.bind(this)
@@ -32,6 +34,15 @@ export default class ZoomGallery extends Component {
   }
 
   componentDidUpdate (prevProps, prevState) {
+    if (this.zoomer && this.zoomer.current) {
+      try {
+        if (this.state.currentIndex !== prevState.currentIndex) {
+          this.zoomer.current.applyInitialTransform()
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
     if (this.props.open && this.props.initialIndex !== prevProps.initialIndex) {
       this.setState({ currentIndex: this.props.initialIndex })
     }
@@ -76,7 +87,7 @@ export default class ZoomGallery extends Component {
     if (!this.props.open || images.length === 0) return null
     return (
       <div className={`${styles.wrapper} ZoomGalleryCarousel`}>
-        <PinchView initialScale='auto' position='center' zoomButtons={false} maxScale={4}>
+        <PinchView ref={this.zoomer} initialScale='auto' position='center' zoomButtons={false} maxScale={4}>
           <img className={`${styles.Image} ${this.state.loading ? styles.ImageLoading : ''}`} src={images[this.state.currentIndex]} />
         </PinchView>
         { this.state.loading && <div className='spinner' /> }
