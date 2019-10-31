@@ -43,20 +43,21 @@ export default class ZoomGallery extends Component {
         console.log(error)
       }
     }
-    if (this.props.open && this.props.initialIndex !== prevProps.initialIndex) {
+
+    if (this.props.open && !prevProps.open) {
       this.setState({ currentIndex: this.props.initialIndex })
     }
-
-    if (
-      this.state.currentIndex !== prevState.currentIndex ||
-      (this.props.open !== prevProps.open && this.props.open)
-    ) return this.handleLoading()
 
     if (this.props.open) {
       disableBodyScroll()
     } else {
       clearAllBodyScrollLocks()
     }
+
+    if (
+      this.state.currentIndex !== prevState.currentIndex ||
+      (this.props.open !== prevProps.open && this.props.open)
+    ) return this.handleLoading()
   }
 
   prevSlide () {
