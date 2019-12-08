@@ -85,12 +85,12 @@ export default class ZoomGallery extends Component {
     const {
       images = []
     } = this.props
-    if (!this.props.open || images.length === 0) return null
     if (this.props.open) {
       document.documentElement.classList.add('zoom-open')
     } else {
       document.documentElement.classList.remove('zoom-open')
     }
+    if (!this.props.open || images.length === 0) return null
 
     return (
       <div className={`${styles.wrapper} ZoomGalleryCarousel`}>
