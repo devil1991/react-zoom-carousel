@@ -69,3 +69,7 @@
   cursor: pointer;
   display: inline-flex;
 }
+
+:global body.zoom-open {
+  overflow: hidden;
+}

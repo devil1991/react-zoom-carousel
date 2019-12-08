@@ -50,8 +50,10 @@ export default class ZoomGallery extends Component {
 
     if (this.props.open) {
       disableBodyScroll()
+      document.body.classList.add('zoom-open')
     } else {
       clearAllBodyScrollLocks()
+      document.body.classList.remove('zoom-open')
     }
 
     if (
