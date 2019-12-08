@@ -49,10 +49,8 @@ export default class ZoomGallery extends Component {
     }
 
     if (this.props.open) {
-      document.documentElement.classList.add('zoom-open')
       disableBodyScroll()
     } else {
-      document.documentElement.classList.remove('zoom-open')
       clearAllBodyScrollLocks()
     }
 
@@ -88,6 +86,12 @@ export default class ZoomGallery extends Component {
       images = []
     } = this.props
     if (!this.props.open || images.length === 0) return null
+    if (this.props.open) {
+      document.documentElement.classList.add('zoom-open')
+    } else {
+      document.documentElement.classList.remove('zoom-open')
+    }
+
     return (
       <div className={`${styles.wrapper} ZoomGalleryCarousel`}>
         <PinchView ref={this.zoomer} initialScale='auto' position='center' zoomButtons={false} maxScale={4}>
