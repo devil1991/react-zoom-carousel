@@ -49,11 +49,11 @@ export default class ZoomGallery extends Component {
     }
 
     if (this.props.open) {
-      disableBodyScroll()
       document.documentElement.classList.add('zoom-open')
+      disableBodyScroll()
     } else {
-      clearAllBodyScrollLocks()
       document.documentElement.classList.remove('zoom-open')
+      clearAllBodyScrollLocks()
     }
 
     if (
