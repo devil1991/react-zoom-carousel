@@ -72,4 +72,5 @@
 
 :global body.zoom-open {
   overflow: hidden;
+  height: 100%;
 }
