@@ -70,7 +70,7 @@
   display: inline-flex;
 }
 
-:global body.zoom-open {
+:global html.zoom-open {
   overflow: hidden;
   height: 100%;
 }
